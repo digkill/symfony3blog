@@ -1,0 +1,58 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: vitl1
+ * Date: 13.02.2017
+ * Time: 13:29
+ */
+
+namespace BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Blog
+ * @package BlogBundle\Entity
+ * @ORM\Table(name="blog")
+ * @ORM\Entity(repositoryClass="BlogBundle\Repository\BlogRepository")
+ */
+class Blog
+{
+    /**
+     * @var $id
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var $title
+     * @ORM\Column(type="string")
+     */
+    private $title;
+
+    /**
+     * @var $summary
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $summary;
+
+    /**
+     * @var $body
+     * @ORM\Column(type="text")
+     */
+    private $body;
+
+    /**
+     * @var $created
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    public function __construct()
+    {
+        $this->created = new \DateTime();
+    }
+
+}

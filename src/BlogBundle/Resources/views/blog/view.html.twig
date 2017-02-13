@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+  {% block body %}
+      <div class="mr-page-title">
+          <h1>{{ article.title }}</h1>
+      </div>
+
+      <article>
+        <div class="continer">
+            <div class="content">
+                {{ article.body|raw }}
+            </div>
+
+            <div class="date">
+                {{ article.created|date("d-m-Y H:i") }}
+            </div>
+        </div>
+
+      </article>
+
+  {% endblock %}
