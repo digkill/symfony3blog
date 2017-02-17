@@ -1,20 +1,19 @@
-{% extends "::base.html.twig" %}
-  {% block body %}
-      <div class="mr-page-title">
-          <h1>{{ article.title }}</h1>
-      </div>
+{% extends "BlogBundle::layout.html.twig" %}
 
-      <article>
-        <div class="continer">
-            <div class="content">
-                {{ article.body|raw }}
-            </div>
+      {% block page_title %}{{ article.title }}{% endblock %}
 
-            <div class="date">
-                {{ article.created|date("d-m-Y H:i") }}
-            </div>
-        </div>
+      {% block content %}
+          <article>
+              <div class="continer">
+                  <div class="content">
+                      {{ article.body|raw }}
+                  </div>
 
-      </article>
+                  <div class="date">
+                      {{ article.created|date("d-m-Y H:i") }}
+                  </div>
+              </div>
 
-  {% endblock %}
+          </article>
+      {% endblock %}
+

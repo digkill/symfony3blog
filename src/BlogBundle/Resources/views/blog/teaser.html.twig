@@ -1,12 +1,31 @@
-{% extends "::base.html.twig" %}
-  {% block body %}
-      <div class="mr-page-title">
-          <h1>Блог</h1>
-      </div>
-      {% for article in articles %}
-          <article>
-            
+{% extends "BlogBundle::layout.html.twig" %}
 
-          </article>
-      {% endfor %}
-  {% endblock %}
+      {% block page_title %}Блог{% endblock %}
+
+      {% block content %}
+          {% for article in articles %}
+              <article>
+                  <h2>
+                      <a href="{{ path('blog_view', { 'id' : article.id}) }}">{{ article.title }}</a>
+                  </h2>
+                  <div class="continer">
+                      <div class="content">
+                          {{ article.body|raw }}
+                      </div>
+
+                      <nav role="navigation">
+                          <ul>
+                              <li class="read-more">
+                                  <a href="{{ path('blog_view', { 'id' : article.id}) }}">Подробнее...</a>
+                              </li>
+                          </ul>
+                      </nav>
+
+                      <div class="date">
+                          {{ article.created|date("d-m-Y H:i") }}
+                      </div>
+                  </div>
+              </article>
+          {% endfor %}
+      {% endblock %}
+

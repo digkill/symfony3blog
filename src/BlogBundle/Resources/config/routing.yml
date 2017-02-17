@@ -1,6 +1,6 @@
 homepage:
     path: /
-    defaults: { _controller: BlogBundle:Blog:homepage }
+    defaults: { _controller: BlogBundle:Blog:teaser }
 
 blog_teaser:
     path: /blog
@@ -12,3 +12,6 @@ blog_view:
     requirements:
         page: \d+
 
+page_about:
+    path: /about
+    defaults: { _controller: BlogBundle:Page:about }
